@@ -10,3 +10,9 @@
 3. PUT (or Patch)
 4. DELETE
 
+# Command
+
+```bash
+python manage.py dumpdata --format json --indent 4
+python manage.py dumpdata updates.Update --format json --indent 4
+```
