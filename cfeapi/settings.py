@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #myapp
+    # 'grpc_app',
     'updates',
 
     'django.contrib.admin',

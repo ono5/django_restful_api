@@ -1,0 +1,15 @@
+syntax = 'proto3';
+
+package gateway;
+
+service Hello {
+    rpc Reply (sayHello) returns (returnHello) {}
+}
+
+message sayHello {
+    string msg = 1;
+}
+
+message returnHello {
+    string msg = 1;
+}
