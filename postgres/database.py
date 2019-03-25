@@ -12,17 +12,23 @@ connection_pool = pool.SimpleConnectionPool( 1,
                                              port=5433 )
 
 
-class ConnectionFromPool( object ):
+class CursorFromConnectionFromPool( object ):
     def __init__(self):
         self.connection = None
+        self.cursor = None
 
     # with 文に入った時に呼ばれる
     def __enter__(self):
         self.connection = connection_pool.getconn()
-        return self.connection
+        self.cursor = self.connection.cursor()
+        return self.cursor
 
     # with 文を抜ける時に呼ばれる
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.connection.commit()
-        # 接続不要の場合は、コネクションプールに接続を戻す
-        connection_pool.putconn(self.connection)
+    def __exit__(self, exception_type, exception_value, exception_traceback):
+        if exception_value is not None: # e.g. TypeError, AttributeError, ValueError
+            self.connection.rollback()
+        else:
+            self.cursor.close()
+            self.connection.commit()
+            # 接続不要の場合は、コネクションプールに接続を戻す
+            connection_pool.putconn(self.connection)
