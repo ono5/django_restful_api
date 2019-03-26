@@ -7,7 +7,7 @@ from database import Database
 #
 # print(Database.connection_pool)
 
-Database.initialise(database="learning", host='localhost', user='postgres', password="1234", port=5432)
+Database.initialise(database="learning", host='localhost', user='postgres', password="1234", port=5433)
 
 my_user = User('jose@schoolofcode.me', 'Jose', 'Smith', None)
 
