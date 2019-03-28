@@ -1,19 +1,12 @@
 import json
 
-from django.core.serializers import serialize
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render
 from django.views.generic import View
 
 from .mixins import JsonResponseMixin
-
+from updates.forms import UpdateModelForm
 from .models import Update
 
-# def detail_view(request):
-    # return render(reqiest, template, {}) # return JSON data -> JS Object Notion
-    # return HttpResponse(get_template().render({}))
-
-# obj = Update.objects.get(id=1)
 
 def json_example_view(request):
     '''
