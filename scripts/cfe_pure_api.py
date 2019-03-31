@@ -40,11 +40,11 @@ def create_update():
 # print(get_list())
 
 # get_list()
-print(create_update())
+# print(create_update())
 
 def do_obj_update():
     new_data = {
-        'content': 'New obj data'
+        'content': 'Some new awesome content'
     }
 
     r = requests.put(BASE_URL + ENDPOINT + "1/", data=json.dumps(new_data))
@@ -65,7 +65,7 @@ def do_obj_update():
 
 def do_obj_delete():
     new_data = {
-        'content': 'New obj data'
+        'content': 'Some new awesome content'
     }
 
     r = requests.delete(BASE_URL + ENDPOINT + "1/")
@@ -80,3 +80,5 @@ def do_obj_delete():
         # print(r.json())
         return r.json()
     return r.text
+
+print(do_obj_delete())
