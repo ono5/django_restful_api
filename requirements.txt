@@ -6,7 +6,7 @@ enum34==1.1.6
 grpcio==1.19.0
 grpcio-tools==1.19.0
 idna==2.8
-Pillow==5.4.1
+Pillow==6.2.0
 protobuf==3.7.0
 psycopg2==2.7.7
 psycopg2-binary==2.7.7
